@@ -4,12 +4,12 @@ import {
     Text,
 } from 'react-native';
 
-export default class ChatScreen extends Component
+export default class ProfileScreen extends Component
 {
     render() {
         return (
             <View>
-                <Text>This is the chat screen</Text>
+                <Text>This is the profile screen</Text>
             </View>
         );
     }

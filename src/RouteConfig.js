@@ -1,8 +1,19 @@
-import { StackNavigator } from 'react-navigation';
-import ConversationListScreen from './ConversationListScreen';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import RecentChatListScreen from './RecentChatListScreen';
+import ProfileScreen from './ProfileScreen';
 import ChatScreen from './ChatScreen';
 
-export const Hola = StackNavigator({
-    ConversationList: { screen: ConversationListScreen },
-    Chat: { screen: ChatScreen },
+const HomeScreenNavigator = DrawerNavigator({
+    Home: { screen: RecentChatListScreen },
+    Profile: { screen: ProfileScreen },
+});
+
+export const HolaApp = StackNavigator ({
+    Home: {
+        screen: HomeScreenNavigator,
+        navigationOptions: {
+            title: 'Hola'
+        }
+    },
+    Chat: { screen: ChatScreen }
 });
