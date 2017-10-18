@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Hola } from './src/RouteConfig';
-import styles from './src/styles';
+import { HolaApp } from "./src/RouteConfig"
 
 export default class App extends Component<{}> {
   render() {
     return (
-        <Hola/>
+        <HolaApp/>
     );
   }
 }

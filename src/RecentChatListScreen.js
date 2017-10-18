@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import {
     View,
     Text,
-    Button,
+    Button
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default class ConversationListScreen extends Component
+export default class RecentChatListScreen extends Component
 {
-    static navigationOptions = {
-        title: 'Hola',
-        headerLeft: <Icon name="menu" size={24}/>,
-        headerRight: <Icon name="search" size={24}/>
-    };
     render() {
         return (
             <View>
+                <Text>List of recent chats.</Text>
+                <Button onPress={() => this.props.navigation.navigate('Chat')} title="Go to Chat"/>
             </View>
         );
     }
