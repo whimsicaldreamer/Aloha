@@ -12,7 +12,6 @@ export default class RecentChatListScreen extends Component
         return (
             <View>
                 <Text>List of recent chats.</Text>
-                <Button onPress={() => this.props.navigation.navigate('DrawerOpen')} title="Open Side Nav"/>
                 <Button onPress={() => this.props.navigation.navigate('Chat')} title="Go to Chat"/>
             </View>
         );

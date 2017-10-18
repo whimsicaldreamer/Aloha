@@ -9,12 +9,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const AllRoutes = StackNavigator({
     Home: {
         screen: RecentChatListScreen,
-        navigationOptions: {
+        navigationOptions: ({navigation}) => ({
             title: 'Hola',
             headerLeft: (
-                <Icon name="menu" size={30}/>
+                <Icon name="menu" size={30} onPress={() => navigation.navigate('DrawerOpen')}/>
+            ),
+            headerRight: (
+                <Icon name="search" size={30}/>
             )
-        }
+        })
     },
     Chat: {
         screen: ChatScreen,
