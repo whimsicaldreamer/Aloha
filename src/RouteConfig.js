@@ -1,9 +1,9 @@
 import React from 'react';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
-import RecentChatListScreen from './RecentChatListScreen';
-import ChatScreen from './ChatScreen';
-import ProfileScreen from './ProfileScreen';
-import DrawerScreen from './DrawerScreen';
+import RecentChatListScreen from './appComponents/RecentChatList/RecentChatListScreen';
+import ChatScreen from './appComponents/Chat/ChatScreen';
+import ProfileScreen from './appComponents/Profile/ProfileScreen';
+import DrawerScreen from './appComponents/Drawer/DrawerScreen';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const AllRoutes = StackNavigator({
