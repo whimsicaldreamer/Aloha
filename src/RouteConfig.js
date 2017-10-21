@@ -4,20 +4,14 @@ import RecentChatListScreen from './appComponents/RecentChatList/RecentChatListS
 import ChatScreen from './appComponents/Chat/ChatScreen';
 import ProfileScreen from './appComponents/Profile/ProfileScreen';
 import DrawerScreen from './appComponents/Drawer/DrawerScreen';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const AllRoutes = StackNavigator({
     Home: {
         screen: RecentChatListScreen,
-        navigationOptions: ({navigation}) => ({
-            title: 'Hola',
-            headerLeft: (
-                <Icon name="menu" size={30} onPress={() => navigation.navigate('DrawerOpen')}/>
-            ),
-            headerRight: (
-                <Icon name="search" size={30}/>
-            )
-        })
+        headerMode: 'screen',
+        navigationOptions: {
+            header: null
+        },
     },
     Chat: {
         screen: ChatScreen,
