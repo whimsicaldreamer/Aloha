@@ -5,7 +5,7 @@ import {
     Button,
 } from 'react-native';
 
-export default class DrawerScreen extends Component
+export default class drawerScreen extends Component
 {
     render() {
         return (

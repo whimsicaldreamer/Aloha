@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HolaApp } from "./src/RouteConfig"
+import { HolaApp } from "./src/routeConfig"
 
 export default class App extends Component<{}> {
   render() {
