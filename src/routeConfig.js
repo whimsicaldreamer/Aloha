@@ -27,7 +27,7 @@ const AllRoutes = StackNavigator({
     }
 });
 
-export const HolaApp = DrawerNavigator({
+export const Aloha = DrawerNavigator({
     App: { screen: AllRoutes },
 }, {
     contentComponent: drawerScreen,

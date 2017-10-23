@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Text,
     Button,
     StatusBar
 } from 'react-native';
-import { ThemeProvider, COLOR, Toolbar} from 'react-native-material-ui';
+import { ThemeProvider, COLOR, Toolbar } from 'react-native-material-ui';
 import uiTheme from '../../themes/defaultTheme';
 
-export default class recentChatListScreen extends Component
+class recentChatListScreen extends Component
 {
     render() {
+        /*const { primaryColor } = this.context.uiTheme.palette;*/
+        console.log(this.context);
         return (
             <ThemeProvider uiTheme={uiTheme}>
                 <View>
@@ -19,7 +22,7 @@ export default class recentChatListScreen extends Component
                     <View>
                         <Toolbar
                             leftElement="menu"
-                            centerElement="Hola"
+                            centerElement="Aloha"
                             searchable={{
                                 autoFocus: true,
                                 placeholder: 'Search your chats',
@@ -34,3 +37,9 @@ export default class recentChatListScreen extends Component
         );
     }
 }
+
+recentChatListScreen.contextTypes = {
+    uiTheme: PropTypes.object
+};
+
+export default recentChatListScreen;
