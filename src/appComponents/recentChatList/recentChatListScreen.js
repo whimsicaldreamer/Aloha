@@ -1,24 +1,21 @@
 import React, { Component }  from 'react';
-import PropTypes from 'prop-types';
 import {
     View,
     Text,
     Button,
     StatusBar
 } from 'react-native';
-import { ThemeProvider, COLOR, Toolbar } from 'react-native-material-ui';
+import { ThemeProvider, Toolbar } from 'react-native-material-ui';
 import uiTheme from '../../themes/defaultTheme';
 
-class recentChatListScreen extends Component
+export default class recentChatListScreen extends Component
 {
     render() {
-        /*const { primaryColor } = this.context.uiTheme.palette;*/
-        console.log(this.context);
         return (
             <ThemeProvider uiTheme={uiTheme}>
                 <View>
                     <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
-                    <View style={{ backgroundColor: COLOR.green500, height: StatusBar.currentHeight}} />
+                    <View style={{ backgroundColor: uiTheme.palette.primaryColor, height: StatusBar.currentHeight}} />
                     <View>
                         <Toolbar
                             leftElement="menu"
@@ -37,9 +34,3 @@ class recentChatListScreen extends Component
         );
     }
 }
-
-recentChatListScreen.contextTypes = {
-    uiTheme: PropTypes.object
-};
-
-export default recentChatListScreen;
