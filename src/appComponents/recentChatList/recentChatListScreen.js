@@ -2,10 +2,10 @@ import React, { Component }  from 'react';
 import {
     View,
     Text,
-    Button,
-    StatusBar
+    Button
 } from 'react-native';
 import { ThemeProvider, Toolbar } from 'react-native-material-ui';
+import CustomStatusBar from '../statusBar/statusBar'
 import uiTheme from '../../themes/defaultTheme';
 
 export default class recentChatListScreen extends Component
@@ -14,8 +14,7 @@ export default class recentChatListScreen extends Component
         return (
             <ThemeProvider uiTheme={uiTheme}>
                 <View>
-                    <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
-                    <View style={{ backgroundColor: uiTheme.palette.primaryColor, height: StatusBar.currentHeight}} />
+                    <CustomStatusBar themeColor={uiTheme.palette.primaryColor} />
                     <View>
                         <Toolbar
                             leftElement="menu"
