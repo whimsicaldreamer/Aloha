@@ -5,6 +5,7 @@ import {
     StatusBar,
     Platform
 } from 'react-native';
+import StatusBarSizeIOS from 'react-native-status-bar-size';
 
 export default class CustomStatusBar extends Component
 {
@@ -12,13 +13,19 @@ export default class CustomStatusBar extends Component
         themeColor: PropTypes.string.isRequired
     };
 
+    getHeight = () => {
+        return Platform.select({
+            ios: StatusBarSizeIOS.currentHeight,
+            android: StatusBar.currentHeight
+        });
+    };
+
     render() {
         const {themeColor} = this.props;
 
         return (
-            <View>
+            <View style={{ backgroundColor: themeColor, height: this.getHeight() }}>
                 <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
-                <View style={{ backgroundColor: themeColor, height: StatusBar.currentHeight}} />
             </View>
         );
     }
