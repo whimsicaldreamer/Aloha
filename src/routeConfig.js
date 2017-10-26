@@ -22,9 +22,10 @@ const AllRoutes = StackNavigator({
     },
     Profile: {
         screen: profileScreen,
+        headerMode: 'screen',
         navigationOptions: {
-            title: "My profile"
-        }
+            header: null
+        },
     }
 });
 

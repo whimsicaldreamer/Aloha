@@ -10,7 +10,9 @@ import uiTheme from '../../themes/defaultTheme';
 export default class chatScreen extends Component
 {
     render() {
+
         const {params} = this.props.navigation.state;
+
         return (
             <ThemeProvider uiTheme={uiTheme}>
                 <View>
