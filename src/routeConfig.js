@@ -15,9 +15,10 @@ const AllRoutes = StackNavigator({
     },
     Chat: {
         screen: chatScreen,
+        headerMode: 'screen',
         navigationOptions: {
-            title: 'chat with Lucy'
-        }
+            header: null
+        },
     },
     Profile: {
         screen: profileScreen,
