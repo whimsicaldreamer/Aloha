@@ -5,7 +5,7 @@ import {
     Button
 } from 'react-native';
 import { ThemeProvider, Toolbar } from 'react-native-material-ui';
-import CustomStatusBar from '../statusBar/statusBar'
+import CustomStatusBar from '../statusBar/statusBar';
 import uiTheme from '../../themes/defaultTheme';
 
 export default class recentChatListScreen extends Component
