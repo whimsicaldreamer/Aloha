@@ -1,4 +1,4 @@
-# Hola-App
+# Aloha
 ###### A Chat app made with react-native for Android, iOS. (Soon coming to Windows)
 #### This app is not completed even the slightest!
 
