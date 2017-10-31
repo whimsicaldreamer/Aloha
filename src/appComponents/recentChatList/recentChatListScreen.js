@@ -2,18 +2,29 @@ import React, { Component }  from 'react';
 import {
     View,
     Text,
-    Button
+    FlatList
 } from 'react-native';
-import { ThemeProvider, Toolbar } from 'react-native-material-ui';
+import {
+    ThemeProvider,
+    Toolbar,
+    ListItem,
+    Avatar
+} from 'react-native-material-ui';
+import {Button} from 'react-native-elements';
 import CustomStatusBar from '../statusBar/statusBar';
 import uiTheme from '../../themes/defaultTheme';
+import styles from './styles';
 
 export default class recentChatListScreen extends Component
 {
+    _renderItem = ({item}) => (
+        <Text style={{fontSize: 18, paddingHorizontal: 20}}>{item.key}</Text>
+    );
+
     render() {
         return (
             <ThemeProvider uiTheme={uiTheme}>
-                <View>
+                <View style={styles.contentWrapper}>
                     <CustomStatusBar themeColor={uiTheme.palette.primaryColor} />
                     <View>
                         <Toolbar
@@ -25,10 +36,20 @@ export default class recentChatListScreen extends Component
                             }}
                             onLeftElementPress={() => this.props.navigation.navigate('DrawerOpen')}
                         />
-                        <Text>List of recent chats.</Text>
+                    </View>
+                    <View style={styles.chatListContainer}>
+                        <FlatList
+                            data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}, {key: 'f'}, {key: 'g'}]}
+                            renderItem={this._renderItem}
+                        />
                         <Button
-                            onPress={() => this.props.navigation.navigate('Chat', {userName: 'Brent'})}
-                            title="Go to Brent's Chat"
+                            icon={{name:"chat", size: 26}}
+                            title="START CHAT"
+                            raised
+                            borderRadius={50}
+                            containerViewStyle={uiTheme.button.container}
+                            buttonStyle={uiTheme.button.buttonStyle}
+                            fontWeight="500"
                         />
                     </View>
                 </View>

@@ -8,5 +8,20 @@ export default uiTheme = {
         container: {
             height: 56
         }
+    },
+    button: {
+        container: {
+            position: 'absolute',
+            height: 55,
+            minWidth: 55,
+            bottom: 20,
+            right: 20
+        },
+        buttonStyle: {
+            height: 55,
+            minWidth: 55,
+            backgroundColor: COLOR.lightBlue500,
+            paddingHorizontal: 16
+        }
     }
 };
