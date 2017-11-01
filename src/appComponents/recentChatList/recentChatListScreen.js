@@ -1,24 +1,45 @@
 import React, { Component }  from 'react';
 import {
     View,
-    Text,
-    FlatList
+    FlatList,
+    Alert
 } from 'react-native';
 import {
     ThemeProvider,
     Toolbar,
     ListItem,
-    Avatar
 } from 'react-native-material-ui';
-import {Button} from 'react-native-elements';
+import {
+    Button,
+    Avatar
+} from 'react-native-elements';
 import CustomStatusBar from '../statusBar/statusBar';
+import RightComponent from './rightElement';
 import uiTheme from '../../themes/defaultTheme';
 import styles from './styles';
 
 export default class recentChatListScreen extends Component
 {
     _renderItem = ({item}) => (
-        <Text style={{fontSize: 18, paddingHorizontal: 20}}>{item.key}</Text>
+        <ListItem
+            divider={true}
+            onPress={() => Alert.alert('Single Tap')}
+            onLongPress={() => Alert.alert('Long Tap')}
+            leftElement={
+                <Avatar
+                    rounded
+                    medium
+                    source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
+                />
+            }
+            centerElement={{
+                primaryText: item.key,
+                secondaryText: "Secondary Text"
+            }}
+            rightElement={
+                <RightComponent unreadCount={0} timeStamp={12121321}/>
+            }
+        />
     );
 
     render() {

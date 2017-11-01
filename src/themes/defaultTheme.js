@@ -23,5 +23,21 @@ export default uiTheme = {
             backgroundColor: COLOR.lightBlue500,
             paddingHorizontal: 16
         }
+    },
+    listItem: {
+        contentViewContainer: {
+            backgroundColor: COLOR.red100
+        },
+        leftElementContainer: {
+            backgroundColor: COLOR.yellow500,
+            width: 50
+        },
+        centerElementContainer: {
+            backgroundColor: COLOR.blue100,
+        },
+        rightElementContainer: {
+            backgroundColor: COLOR.red900,
+            marginRight: 12
+        }
     }
 };
