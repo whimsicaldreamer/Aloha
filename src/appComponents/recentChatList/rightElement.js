@@ -5,7 +5,6 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import {Badge} from 'react-native-elements';
 
 export default class RightComponent extends Component
 {
@@ -19,9 +18,6 @@ export default class RightComponent extends Component
      * - Convert timestamp into human readable format and then
      *   pass to the rendering component
      *
-     * - Make badge a circle when there is single digit and gradually
-     *   make it pill shape when digits increase
-     *
      * - Hide badges when the value is `0`
      *
      * - Give badge the theme's primary colour. (Just a thought!)
@@ -32,9 +28,13 @@ export default class RightComponent extends Component
 
         return (
             <View>
-                <Badge value={unreadCount} />
-                <View>
+                <View style={rightElement.timeStampWrapper}>
                     <Text style={rightElement.timeStamp}>{timeStamp}</Text>
+                </View>
+                <View style={rightElement.badgeWrapper}>
+                    <View style={rightElement.badge}>
+                        <Text style={rightElement.count}>{unreadCount}</Text>
+                    </View>
                 </View>
             </View>
         );
@@ -42,7 +42,27 @@ export default class RightComponent extends Component
 }
 
 const rightElement = StyleSheet.create({
-    timeStamp: {
-        paddingRight: 4
+    timeStampWrapper: {
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        marginBottom: 4
+    },
+    badgeWrapper: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end'
+    },
+    badge: {
+        backgroundColor: "gray",
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 20,
+        minWidth: 20,
+        paddingLeft: 5,
+        paddingRight: 5
+    },
+    count: {
+        color: "black",
     }
 });

@@ -60,7 +60,7 @@ export default class recentChatListScreen extends Component
                     </View>
                     <View style={styles.chatListContainer}>
                         <FlatList
-                            data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}, {key: 'f'}, {key: 'g'}]}
+                            data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}, {key: 'f'}]}
                             renderItem={this._renderItem}
                         />
                         <Button

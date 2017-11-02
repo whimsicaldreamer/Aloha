@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     contentWrapper: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "white"
     },
     chatListContainer: {
         flex: 1,
