@@ -29,15 +29,15 @@ export default class recentChatListScreen extends Component
                 <Avatar
                     rounded
                     medium
-                    source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
+                    source={{uri: item.avatar}}
                 />
             }
             centerElement={{
-                primaryText: item.key,
-                secondaryText: "Secondary Text"
+                primaryText: item.chatWith,
+                secondaryText: item.lastMessage
             }}
             rightElement={
-                <RightComponent unreadCount={0} timeStamp={12121321}/>
+                <RightComponent unreadCount={item.unreadMessages} timeStamp={item.lastMessageTime}/>
             }
         />
     );
@@ -60,8 +60,34 @@ export default class recentChatListScreen extends Component
                     </View>
                     <View style={styles.chatListContainer}>
                         <FlatList
-                            data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}, {key: 'f'}]}
+                            data={[
+                                {
+                                    messageId: 'a',
+                                    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                                    chatWith: 'Jane Doe',
+                                    lastMessage: 'This line here will show the last message',
+                                    lastMessageTime: 1509693517,
+                                    unreadMessages: 0
+                                },
+                                {
+                                    messageId: 'b',
+                                    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                                    chatWith: 'John Doe',
+                                    lastMessage: 'This line here will show the last message',
+                                    lastMessageTime: 1509520707,
+                                    unreadMessages: 100
+                                },
+                                {
+                                    messageId: 'c',
+                                    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                                    chatWith: 'John Doe',
+                                    lastMessage: 'This line here will show the last message',
+                                    lastMessageTime: 1509698050,
+                                    unreadMessages: 50
+                                }
+                                ]}
                             renderItem={this._renderItem}
+                            keyExtractor={item => item.messageId}
                         />
                         <Button
                             icon={{name:"chat", size: 26}}

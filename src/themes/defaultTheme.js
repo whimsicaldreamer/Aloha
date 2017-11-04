@@ -20,7 +20,7 @@ export default uiTheme = {
         buttonStyle: {
             height: 55,
             minWidth: 55,
-            backgroundColor: COLOR.lightBlue500,
+            backgroundColor: COLOR.deepPurple900,
             paddingHorizontal: 16
         }
     },

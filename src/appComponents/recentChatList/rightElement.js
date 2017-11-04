@@ -5,6 +5,7 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
+import moment from 'moment';
 
 export default class RightComponent extends Component
 {
@@ -14,13 +15,32 @@ export default class RightComponent extends Component
     };
 
     /*
+     * Convert timestamp into human readable format
+     */
+    readableTimestamp = ({timeStamp}) => {
+        let readableTime;
+        readableTime = moment.unix(timeStamp).calendar(null, {
+            sameDay: function(now) {
+                if (Math.abs(this.diff(now) / 1000) < 600) {
+                    return '[' + this.fromNow() + ']';
+                } else {
+                    return 'HH:MM';
+                }
+            },
+            lastDay: '[Yesterday]',
+            lastWeek: 'DD/MM/YYYY',
+            sameElse: 'DD/MM/YYYY'
+        });
+        return readableTime;
+    };
+    /*
      * TODO
-     * - Convert timestamp into human readable format and then
-     *   pass to the rendering component
      *
      * - Hide badges when the value is `0`
      *
      * - Give badge the theme's primary colour. (Just a thought!)
+     *
+     * - Arrange list items depending on timestamp
      */
 
     render() {
@@ -29,7 +49,7 @@ export default class RightComponent extends Component
         return (
             <View>
                 <View style={rightElement.timeStampWrapper}>
-                    <Text style={rightElement.timeStamp}>{timeStamp}</Text>
+                    <Text style={rightElement.timeStamp}>{this.readableTimestamp({timeStamp})}</Text>
                 </View>
                 <View style={rightElement.badgeWrapper}>
                     <View style={rightElement.badge}>
@@ -46,6 +66,9 @@ const rightElement = StyleSheet.create({
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
         marginBottom: 4
+    },
+    timeStamp: {
+        fontSize: 12
     },
     badgeWrapper: {
         flexDirection: 'row',
