@@ -62,6 +62,7 @@ export default class recentChatListScreen extends Component
                         <FlatList
                             data={[
                                 {
+                                    userId: 1,
                                     messageId: 'a',
                                     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                                     chatWith: 'Jane Doe',
@@ -70,6 +71,7 @@ export default class recentChatListScreen extends Component
                                     unreadMessages: 0
                                 },
                                 {
+                                    userId: 2,
                                     messageId: 'b',
                                     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                                     chatWith: 'John Doe',
@@ -78,16 +80,17 @@ export default class recentChatListScreen extends Component
                                     unreadMessages: 100
                                 },
                                 {
+                                    userId: 3,
                                     messageId: 'c',
                                     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                                     chatWith: 'John Doe',
                                     lastMessage: 'This line here will show the last message',
-                                    lastMessageTime: 1509698050,
-                                    unreadMessages: 50
+                                    lastMessageTime: 1509957750,
+                                    unreadMessages: 0
                                 }
-                                ]}
+                            ]}
                             renderItem={this._renderItem}
-                            keyExtractor={item => item.messageId}
+                            keyExtractor={item => item.userId}
                         />
                         <Button
                             icon={{name:"chat", size: 26}}

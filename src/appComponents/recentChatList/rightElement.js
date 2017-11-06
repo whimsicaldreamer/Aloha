@@ -14,9 +14,7 @@ export default class RightComponent extends Component
         timeStamp: PropTypes.number.isRequired
     };
 
-    /*
-     * Convert timestamp into human readable format
-     */
+    //Convert timestamp into human readable format
     readableTimestamp = ({timeStamp}) => {
         let readableTime;
         readableTime = moment.unix(timeStamp).calendar(null, {
@@ -33,15 +31,21 @@ export default class RightComponent extends Component
         });
         return readableTime;
     };
-    /*
-     * TODO
-     *
-     * - Hide badges when the value is `0`
-     *
-     * - Give badge the theme's primary colour. (Just a thought!)
-     *
-     * - Arrange list items depending on timestamp
-     */
+
+    // Hide badges when the value of unreadCount is `0`
+    generateBadge = ({unreadCount}) => {
+        let badge;
+        if(unreadCount > 0) {
+            badge = (
+                <View style={rightElement.badgeWrapper}>
+                    <View style={rightElement.badge}>
+                        <Text style={rightElement.count}>{unreadCount}</Text>
+                    </View>
+                </View>
+            );
+        }
+        return badge;
+    };
 
     render() {
         const {unreadCount, timeStamp} = this.props;
@@ -51,11 +55,7 @@ export default class RightComponent extends Component
                 <View style={rightElement.timeStampWrapper}>
                     <Text style={rightElement.timeStamp}>{this.readableTimestamp({timeStamp})}</Text>
                 </View>
-                <View style={rightElement.badgeWrapper}>
-                    <View style={rightElement.badge}>
-                        <Text style={rightElement.count}>{unreadCount}</Text>
-                    </View>
-                </View>
+                {this.generateBadge({unreadCount})}
             </View>
         );
     }
@@ -64,8 +64,7 @@ export default class RightComponent extends Component
 const rightElement = StyleSheet.create({
     timeStampWrapper: {
         alignItems: 'flex-end',
-        justifyContent: 'flex-end',
-        marginBottom: 4
+        justifyContent: 'flex-end'
     },
     timeStamp: {
         fontSize: 12
@@ -73,7 +72,8 @@ const rightElement = StyleSheet.create({
     badgeWrapper: {
         flexDirection: 'row',
         alignItems: 'flex-end',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        marginTop: 4,
     },
     badge: {
         backgroundColor: "gray",
