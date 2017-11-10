@@ -15,7 +15,7 @@ export default uiTheme = {
             height: 55,
             minWidth: 55,
             bottom: 20,
-            right: 20
+            right: 0
         },
         buttonStyle: {
             height: 55,
@@ -27,9 +27,6 @@ export default uiTheme = {
     listItem: {
         leftElementContainer: {
             width: 50
-        },
-        rightElementContainer: {
-            marginRight: 12
         }
     }
 };

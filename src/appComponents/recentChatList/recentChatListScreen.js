@@ -14,7 +14,7 @@ import {
     Avatar
 } from 'react-native-elements';
 import CustomStatusBar from '../statusBar/statusBar';
-import RightComponent from './rightElement';
+import CenterComponent from './centerElement';
 import uiTheme from '../../themes/defaultTheme';
 import styles from './styles';
 
@@ -23,6 +23,7 @@ export default class recentChatListScreen extends Component
     _renderItem = ({item}) => (
         <ListItem
             divider={true}
+            numberOfLines={2}
             onPress={() => Alert.alert('Single Tap')}
             onLongPress={() => Alert.alert('Long Tap')}
             leftElement={
@@ -32,12 +33,13 @@ export default class recentChatListScreen extends Component
                     source={{uri: item.avatar}}
                 />
             }
-            centerElement={{
-                primaryText: item.chatWith,
-                secondaryText: item.lastMessage
-            }}
-            rightElement={
-                <RightComponent unreadCount={item.unreadMessages} timeStamp={item.lastMessageTime}/>
+            centerElement={
+                <CenterComponent
+                    primaryText={item.chatWith}
+                    secondaryText={item.lastMessage}
+                    timestamp={item.lastMessageTime}
+                    unreadCount={item.unreadMessages}
+                />
             }
         />
     );
@@ -75,7 +77,7 @@ export default class recentChatListScreen extends Component
                                     messageId: 'b',
                                     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                                     chatWith: 'John Doe',
-                                    lastMessage: 'This line here will show the last message',
+                                    lastMessage: 'This line here will show the last loooooong message',
                                     lastMessageTime: 1509520707,
                                     unreadMessages: 100
                                 },
@@ -85,8 +87,8 @@ export default class recentChatListScreen extends Component
                                     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
                                     chatWith: 'John Doe',
                                     lastMessage: 'This line here will show the last message',
-                                    lastMessageTime: 1509957750,
-                                    unreadMessages: 0
+                                    lastMessageTime: 1510134380,
+                                    unreadMessages: 1
                                 }
                             ]}
                             renderItem={this._renderItem}
