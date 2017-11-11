@@ -10,10 +10,10 @@ import {
     ListItem,
 } from 'react-native-material-ui';
 import {
-    Button,
-    Avatar
+    Button
 } from 'react-native-elements';
 import CustomStatusBar from '../statusBar/statusBar';
+import ProfilePic from './profilePicture';
 import CenterComponent from './centerElement';
 import uiTheme from '../../themes/defaultTheme';
 import styles from './styles';
@@ -27,11 +27,7 @@ export default class recentChatListScreen extends Component
             onPress={() => Alert.alert('Single Tap')}
             onLongPress={() => Alert.alert('Long Tap')}
             leftElement={
-                <Avatar
-                    rounded
-                    medium
-                    source={{uri: item.avatar}}
-                />
+                <ProfilePic image={item.avatar}/>
             }
             centerElement={
                 <CenterComponent
@@ -66,7 +62,7 @@ export default class recentChatListScreen extends Component
                                 {
                                     userId: 1,
                                     messageId: 'a',
-                                    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+                                    avatar: '',
                                     chatWith: 'Jane Doe',
                                     lastMessage: 'This line here will show the last message',
                                     lastMessageTime: 1509693517,
