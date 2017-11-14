@@ -24,7 +24,7 @@ export default uiTheme = {
             color: COLOR.grey600
         },
         titleText: {
-            color: COLOR.green600
+            color: COLOR.grey600
         },
         rightElement: {
             color: COLOR.grey600
