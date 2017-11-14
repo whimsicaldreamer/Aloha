@@ -6,12 +6,12 @@ import {
     StyleSheet
 } from 'react-native';
 import moment from 'moment';
-import { COLOR } from 'react-native-material-ui';
 
 export default class TimeStamp extends Component
 {
     static propTypes = {
-        messageTime: PropTypes.number.isRequired
+        messageTime: PropTypes.number.isRequired,
+        theme: PropTypes.object.isRequired
     };
 
     //Convert timestamp into human readable format
@@ -33,11 +33,11 @@ export default class TimeStamp extends Component
     };
 
     render() {
-        const {messageTime} = this.props;
+        const {messageTime, theme} = this.props;
 
         return (
             <View style={timestamp.timeStampWrapper}>
-                <Text style={timestamp.text}>
+                <Text style={theme.timestamp.text}>
                     {this.readableTimestamp({messageTime})}
                 </Text>
             </View>
@@ -48,10 +48,5 @@ export default class TimeStamp extends Component
 const timestamp = StyleSheet.create({
     timeStampWrapper: {
         marginLeft: 10,
-    },
-    text: {
-        fontSize: 12,
-        color: COLOR.blueGrey400,
-        lineHeight: 20,
     }
 });

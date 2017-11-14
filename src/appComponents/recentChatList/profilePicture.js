@@ -2,22 +2,22 @@ import React, { Component }  from 'react';
 import { View } from 'react-native';
 import {Avatar} from 'react-native-elements';
 import PropTypes from 'prop-types';
-import { COLOR } from 'react-native-material-ui';
 
 export default class ProfilePic extends Component
 {
     static propTypes = {
-        image: PropTypes.string
+        image: PropTypes.string,
+        theme: PropTypes.object.isRequired
     };
 
-    generateAvatar = ({image}) => {
+    generateAvatar = ({image, theme}) => {
         if(image === '') {
             return (
                 <Avatar
                     rounded
                     medium
                     icon={{name: 'person', size: 34}}
-                    containerStyle={{backgroundColor: COLOR.blueGrey400}}
+                    containerStyle={theme.profilePic.container}
                 />
             )
         }
@@ -33,11 +33,11 @@ export default class ProfilePic extends Component
     };
 
     render() {
-        const {image} = this.props;
+        const {image, theme} = this.props;
 
         return (
             <View>
-                {this.generateAvatar({image})}
+                {this.generateAvatar({image, theme})}
             </View>
         );
     }

@@ -38,5 +38,40 @@ export default uiTheme = {
         leftElementContainer: {
             width: 50
         }
+    },
+    profilePic: {
+        container: {
+            backgroundColor: COLOR.blueGrey400
+        }
+    },
+    centerElement: {
+        primaryText: {
+            fontSize: 16,
+            fontWeight: '500',
+            color: COLOR.blueGrey700,
+            lineHeight: 24,
+        },
+        secondaryText: {
+            fontSize: 14,
+            fontWeight: '400',
+            color: COLOR.blueGrey500,
+            lineHeight: 22
+        }
+    },
+    unreadCount: {
+        unreadBadgeColor: {
+            backgroundColor: COLOR.purple500
+        },
+        count: {
+            color: 'white',
+            fontWeight: '500'
+        }
+    },
+    timestamp: {
+        text: {
+            fontSize: 12,
+            color: COLOR.blueGrey400,
+            lineHeight: 20,
+        }
     }
 };

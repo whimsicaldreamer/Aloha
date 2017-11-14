@@ -40,7 +40,7 @@ export default class recentChatListScreen extends Component
             onPress={() => Alert.alert('Single Tap')}
             onLongPress={() => Alert.alert('Long Tap')}
             leftElement={
-                <ProfilePic image={item.avatar}/>
+                <ProfilePic image={item.avatar} theme={uiTheme}/>
             }
             centerElement={
                 <CenterComponent
@@ -48,6 +48,7 @@ export default class recentChatListScreen extends Component
                     secondaryText={item.lastMessage}
                     timestamp={item.lastMessageTime}
                     unreadCount={item.unreadMessages}
+                    theme={uiTheme}
                 />
             }
         />

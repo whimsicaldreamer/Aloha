@@ -5,20 +5,20 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import { COLOR } from 'react-native-material-ui';
 
 export default class Unread extends Component
 {
     static propTypes = {
-        count: PropTypes.number.isRequired
+        count: PropTypes.number.isRequired,
+        theme: PropTypes.object.isRequired
     };
 
-    generateBadge = ({count}) => {
+    generateBadge = ({count, theme}) => {
         let badge;
         if(count > 0) {
             badge = (
-                <View style={unreadCount.badge}>
-                    <Text style={unreadCount.count}>
+                <View style={[unreadCount.badge, theme.unreadCount.unreadBadgeColor]}>
+                    <Text style={theme.unreadCount.count}>
                         {count}
                     </Text>
                 </View>
@@ -28,11 +28,11 @@ export default class Unread extends Component
     };
 
     render() {
-        const {count} = this.props;
+        const {count, theme} = this.props;
 
         return (
             <View>
-                {this.generateBadge({count})}
+                {this.generateBadge({count, theme})}
             </View>
         );
     }
@@ -40,7 +40,6 @@ export default class Unread extends Component
 
 const unreadCount = StyleSheet.create({
     badge: {
-        backgroundColor: COLOR.purple500,
         marginLeft: 10,
         borderRadius: 50,
         height: 22,
@@ -48,9 +47,5 @@ const unreadCount = StyleSheet.create({
         paddingHorizontal: 5,
         alignItems: 'center',
         justifyContent: 'center'
-    },
-    count: {
-        color: 'white',
-        fontWeight: '500'
     }
 });
