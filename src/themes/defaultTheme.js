@@ -19,6 +19,17 @@ export default uiTheme = {
             color: COLOR.grey600
         }
     },
+    toolbarSearchActive: {
+        leftElement: {
+            color: COLOR.grey600
+        },
+        titleText: {
+            color: COLOR.green600
+        },
+        rightElement: {
+            color: COLOR.grey600
+        }
+    },
     button: {
         container: {
             position: 'absolute',

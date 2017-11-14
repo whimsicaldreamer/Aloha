@@ -79,7 +79,7 @@ export default class recentChatListScreen extends Component
                                     messageId: 'a',
                                     avatar: '',
                                     chatWith: 'Jane Doe',
-                                    lastMessage: 'This line here will show the last message',
+                                    lastMessage: 'This line here will show the last message and takes up the whole line',
                                     lastMessageTime: 1509693517,
                                     unreadMessages: 0
                                 },
@@ -106,9 +106,9 @@ export default class recentChatListScreen extends Component
                                     messageId: 'c',
                                     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg',
                                     chatWith: 'John Doe',
-                                    lastMessage: 'This line here will show the last message',
+                                    lastMessage: 'This line here will show the last message to show it extends and forms ellipsis',
                                     lastMessageTime: 1510246390,
-                                    unreadMessages: 1
+                                    unreadMessages: 0
                                 },
                                 {
                                     userId: 5,
@@ -135,7 +135,7 @@ export default class recentChatListScreen extends Component
                                     chatWith: 'John Doe',
                                     lastMessage: 'This line here will show the last message',
                                     lastMessageTime: 1510134380,
-                                    unreadMessages: 7
+                                    unreadMessages: 0
                                 },
                                 {
                                     userId: 8,

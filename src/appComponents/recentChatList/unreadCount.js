@@ -17,7 +17,7 @@ export default class Unread extends Component
         let badge;
         if(count > 0) {
             badge = (
-                <View style={[unreadCount.badge, theme.unreadCount.unreadBadgeColor]}>
+                <View style={StyleSheet.flatten([unreadCount.badge, theme.unreadCount.unreadBadgeColor])}>
                     <Text style={theme.unreadCount.count}>
                         {count}
                     </Text>
