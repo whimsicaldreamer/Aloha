@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import TimeStamp from './timeStamp';
 import Unread from './unreadCount';
+import { COLOR } from 'react-native-material-ui';
 
 export default class CenterComponent extends Component
 {
@@ -54,6 +55,7 @@ const centerElement = StyleSheet.create({
     primaryText: {
         fontSize: 16,
         fontWeight: '500',
+        color: COLOR.blueGrey700,
         lineHeight: 24,
     },
     secondaryContainer: {
@@ -65,6 +67,7 @@ const centerElement = StyleSheet.create({
     secondaryText: {
         fontSize: 14,
         fontWeight: '400',
+        color: COLOR.blueGrey500,
         lineHeight: 22
     }
 });

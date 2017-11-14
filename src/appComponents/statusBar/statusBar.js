@@ -9,15 +9,16 @@ import { getStatusBarHeight } from "../../utils";
 export default class CustomStatusBar extends Component
 {
     static propTypes = {
-        themeColor: PropTypes.string.isRequired
+        themeColor: PropTypes.string.isRequired,
+        elevation: PropTypes.number.isRequired
     };
 
     render() {
-        const {themeColor} = this.props;
+        const {themeColor, elevation} = this.props;
 
         return (
-            <View style={{ backgroundColor: themeColor, height: getStatusBarHeight() }}>
-                <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
+            <View style={{ backgroundColor: themeColor, height: getStatusBarHeight(), elevation: elevation }}>
+                <StatusBar backgroundColor="rgba(0, 0, 0, 0.05)" translucent />
             </View>
         );
     }

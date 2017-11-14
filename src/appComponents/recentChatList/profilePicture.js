@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import { View } from 'react-native';
 import {Avatar} from 'react-native-elements';
 import PropTypes from 'prop-types';
+import { COLOR } from 'react-native-material-ui';
 
 export default class ProfilePic extends Component
 {
@@ -16,6 +17,7 @@ export default class ProfilePic extends Component
                     rounded
                     medium
                     icon={{name: 'person', size: 34}}
+                    containerStyle={{backgroundColor: COLOR.blueGrey400}}
                 />
             )
         }

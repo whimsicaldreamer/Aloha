@@ -5,6 +5,7 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
+import { COLOR } from 'react-native-material-ui';
 
 export default class Unread extends Component
 {
@@ -39,7 +40,7 @@ export default class Unread extends Component
 
 const unreadCount = StyleSheet.create({
     badge: {
-        backgroundColor: 'black',
+        backgroundColor: COLOR.purple500,
         marginLeft: 10,
         borderRadius: 50,
         height: 22,

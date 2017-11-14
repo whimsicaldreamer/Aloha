@@ -6,6 +6,7 @@ import {
     StyleSheet
 } from 'react-native';
 import moment from 'moment';
+import { COLOR } from 'react-native-material-ui';
 
 export default class TimeStamp extends Component
 {
@@ -25,7 +26,7 @@ export default class TimeStamp extends Component
                 }
             },
             lastDay: '[YESTERDAY]',
-            lastWeek: 'DD/MM/YYYY',
+            lastWeek: 'D MMM',
             sameElse: 'DD/MM/YYYY'
         });
         return readableTime;
@@ -50,6 +51,7 @@ const timestamp = StyleSheet.create({
     },
     text: {
         fontSize: 12,
-        lineHeight: 20
+        color: COLOR.blueGrey400,
+        lineHeight: 20,
     }
 });

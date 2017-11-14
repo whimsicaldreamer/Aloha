@@ -2,11 +2,21 @@ import { COLOR } from 'react-native-material-ui';
 
 export default uiTheme = {
     palette: {
-        primaryColor: COLOR.green500
+        primaryColor: COLOR.white
     },
     toolbar: {
         container: {
-            height: 56
+            height: 56,
+            borderColor: 'black'
+        },
+        leftElement: {
+            color: COLOR.grey600
+        },
+        titleText: {
+            color: COLOR.grey600
+        },
+        rightElement: {
+            color: COLOR.grey600
         }
     },
     button: {
@@ -20,7 +30,7 @@ export default uiTheme = {
         buttonStyle: {
             height: 55,
             minWidth: 55,
-            backgroundColor: COLOR.deepPurple900,
+            backgroundColor: COLOR.deepPurple500,
             paddingHorizontal: 16
         }
     },
