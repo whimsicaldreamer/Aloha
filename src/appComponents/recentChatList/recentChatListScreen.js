@@ -2,7 +2,8 @@ import React, { Component }  from 'react';
 import {
     View,
     FlatList,
-    Alert
+    Alert,
+    Animated
 } from 'react-native';
 import {
     ThemeProvider,
@@ -19,18 +20,7 @@ import styles from './styles';
 export default class recentChatListScreen extends Component
 {
     state = {
-        toolbarElevation: 0
-    };
-
-    _onScroll = (event) => {
-        const currentOffset = event.nativeEvent.contentOffset.y;
-
-        if(currentOffset > 0) {
-            this.setState({toolbarElevation: 7});
-        }
-        else {
-            this.setState({toolbarElevation: 0});
-        }
+        scrollY: new Animated.Value(0)
     };
 
     _renderItem = ({item}) => (
@@ -55,10 +45,17 @@ export default class recentChatListScreen extends Component
     );
 
     render() {
+        //ToDo Change in elevation on scroll gives warnings in debug mode and needs to be fixed
+        const elevate = this.state.scrollY.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, 7],
+            extrapolate: 'clamp'
+        });
+
         return (
             <ThemeProvider uiTheme={uiTheme}>
                 <View style={styles.contentWrapper}>
-                    <CustomStatusBar themeColor={uiTheme.palette.primaryColor} elevation={this.state.toolbarElevation}/>
+                    <CustomStatusBar themeColor={uiTheme.palette.primaryColor} elevation={elevate}/>
                     <View>
                         <Toolbar
                             leftElement="menu"
@@ -68,7 +65,7 @@ export default class recentChatListScreen extends Component
                                 placeholder: 'Search your chats',
                             }}
                             onLeftElementPress={() => this.props.navigation.navigate('DrawerOpen')}
-                            style={{container: {elevation: this.state.toolbarElevation}}}
+                            style={{container: {elevation: elevate}}}
                         />
                     </View>
                     <View style={styles.chatListContainer}>
@@ -158,7 +155,11 @@ export default class recentChatListScreen extends Component
                             ]}
                             renderItem={this._renderItem}
                             keyExtractor={item => item.userId}
-                            onScroll={this._onScroll}
+                            onScroll={Animated.event(
+                                [{nativeEvent: {
+                                    contentOffset: {y: this.state.scrollY}
+                                }}]
+                            )}
                         />
                         <Button
                             icon={{name:"chat", size: 26}}
